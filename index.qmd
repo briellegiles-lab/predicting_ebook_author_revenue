@@ -1,7 +1,7 @@
 ---
-title: "Replace with a specific, informative title"
-subtitle: "Replace with one sentence that tells readers why the question matters"
-author: "Replace with all group members' names"
+title: "Predicting daily author revenue for e-books"
+subtitle: "Aiding aspiring e-book authors to get higher revenue from their books"
+author: "Brielle Giles, Kailyn Eastman, Jane Callister"
 date: last-modified
 description: "Replace with a brief description for link previews."
 ---

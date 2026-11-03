@@ -1,30 +1,46 @@
 ---
 title: "AI Use and Verification"
 description: "A concise record of AI-supported work on this project."
-author: "Replace with all group members' names"
+author: "Brielle Giles, Kailyn Eastman, Jane Callister"
 ---
 
 This page is a work log, not a second report. Short bullets are welcome. It is separate from the final case study and does not count toward the 750 to 1,000 word range.
 
 ## Starting point
 
-**AI system and date:** Replace.
+**AI system and date:** ChatGPT, 3 November 2026
 
 **Before using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address.**
+
+Our question is what factors most contriubte to higher daily average author revenue. Our base model is a basic linear regression model, as shown below:
+$$
+\text{Daily average author revenue}
+$$
+
+My main result so far is higher average ratings tend to be associated with higher revenue, and when looking at daily average gross sales, we see a pattern in publisher type—author revenue tends to increase more for indie publishers as opposed to Amazon and big five publishers. However, our baseline model does not include interactions, which may explain some of the response.
 
 ## Substantive prompts
 
 Paste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.
 
-> Replace with an exact prompt.
+> I am creating a regression case study in R and Quarto. My question is what factors most contribute to higher daily average author revenue. The response is daily average author revenue, the main predictors are genre, publisher type, seller, rating, total reviews, daily average gross sales and sale price, and my course-based core model is starting_mod <- lm(
+  author_revenue ~ genre +
+    publisher_type +
+    average_rating +
+    total_reviews +
+    sale_price +
+    seller +
+    gross_sales,
+  data = publishers_data
+). My main result so far is higher average ratings tend to be associated with higher revenue, and when looking at daily average gross sales, we see a pattern in publisher type—author revenue tends to increase more for indie publishers as opposed to Amazon and big five publishers. I found this limitation or opportunity: our model does not currently include interactions. Suggest three feasible extensions that keep the core analysis connected to regression methods taught in my class. One option may be a model not taught in class used as a comparator. For each, explain how it strengthens the same research question, how its result would enter the final case study, the implementation steps, and two ways I could verify it. Do not choose for me.
 
 > Replace with another exact prompt, if needed.
 
 ## My decisions
 
-- **Accepted:** What useful advice did you use?
-- **Changed:** What did you adapt to fit your data or goals?
-- **Rejected or corrected:** What advice was unsuitable, unnecessary, or wrong?
+- **Accepted:** We want to use a LASSO model to shrink the coefficients and help make a smaller model with variable selection. We can compare this model with the original OLS model to test prediction accuracy on both.
+- **Changed:** It suggested that we test publisher type by gross sales interaction. We are also curious about other interactions, such as publlisher type and sale price.
+- **Rejected or corrected:** AI advised that we compare the full model with a simpler, theory guided model. Our problem is that we don't know exactly which variables could have an effect, so we want to compare them using other methods than guess and check.
 
 **Connection to the final case study:** Identify where the extension's method and result appear on the final page and how they strengthen the course-based analysis.
 

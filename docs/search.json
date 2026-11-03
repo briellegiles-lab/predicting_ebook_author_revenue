@@ -11,21 +11,21 @@
     "href": "ai-use.html#starting-point",
     "title": "AI Use and Verification",
     "section": "Starting point",
-    "text": "Starting point\nAI system and date: Replace.\nBefore using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address."
+    "text": "Starting point\nAI system and date: ChatGPT, 3 November 2026\nBefore using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address.\nOur question is what factors most contriubte to higher daily average author revenue. Our base model is a basic linear regression model, as shown below: \\[\n\\text{Daily average author revenue}\n\\]\nMy main result so far is higher average ratings tend to be associated with higher revenue, and when looking at daily average gross sales, we see a pattern in publisher type—author revenue tends to increase more for indie publishers as opposed to Amazon and big five publishers. However, our baseline model does not include interactions, which may explain some of the response."
   },
   {
     "objectID": "ai-use.html#substantive-prompts",
     "href": "ai-use.html#substantive-prompts",
     "title": "AI Use and Verification",
     "section": "Substantive prompts",
-    "text": "Substantive prompts\nPaste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.\n\nReplace with an exact prompt.\n\n\nReplace with another exact prompt, if needed."
+    "text": "Substantive prompts\nPaste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.\n\nI am creating a regression case study in R and Quarto. My question is what factors most contribute to higher daily average author revenue. The response is daily average author revenue, the main predictors are genre, publisher type, seller, rating, total reviews, daily average gross sales and sale price, and my course-based core model is starting_mod &lt;- lm( author_revenue ~ genre + publisher_type + average_rating + total_reviews + sale_price + seller + gross_sales, data = publishers_data ). My main result so far is higher average ratings tend to be associated with higher revenue, and when looking at daily average gross sales, we see a pattern in publisher type—author revenue tends to increase more for indie publishers as opposed to Amazon and big five publishers. I found this limitation or opportunity: our model does not currently include interactions. Suggest three feasible extensions that keep the core analysis connected to regression methods taught in my class. One option may be a model not taught in class used as a comparator. For each, explain how it strengthens the same research question, how its result would enter the final case study, the implementation steps, and two ways I could verify it. Do not choose for me.\n\n\nReplace with another exact prompt, if needed."
   },
   {
     "objectID": "ai-use.html#my-decisions",
     "href": "ai-use.html#my-decisions",
     "title": "AI Use and Verification",
     "section": "My decisions",
-    "text": "My decisions\n\nAccepted: What useful advice did you use?\nChanged: What did you adapt to fit your data or goals?\nRejected or corrected: What advice was unsuitable, unnecessary, or wrong?\n\nConnection to the final case study: Identify where the extension’s method and result appear on the final page and how they strengthen the course-based analysis."
+    "text": "My decisions\n\nAccepted: We want to use a LASSO model to shrink the coefficients and help make a smaller model with variable selection. We can compare this model with the original OLS model to test prediction accuracy on both.\nChanged: It suggested that we test publisher type by gross sales interaction. We are also curious about other interactions, such as publlisher type and sale price.\nRejected or corrected: AI advised that we compare the full model with a simpler, theory guided model. Our problem is that we don’t know exactly which variables could have an effect, so we want to compare them using other methods than guess and check.\n\nConnection to the final case study: Identify where the extension’s method and result appear on the final page and how they strengthen the course-based analysis."
   },
   {
     "objectID": "ai-use.html#independent-verification",
@@ -51,49 +51,49 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Replace with a specific, informative title",
+    "title": "Predicting daily author revenue for e-books",
     "section": "",
     "text": "Narrative word count: Replace with a number from 750 to 1,000."
   },
   {
     "objectID": "index.html#the-question",
     "href": "index.html#the-question",
-    "title": "Replace with a specific, informative title",
+    "title": "Predicting daily author revenue for e-books",
     "section": "The question",
     "text": "The question\nIn one or two short paragraphs, introduce the setting, audience, focused research question, data source, observational unit, response, important predictors, and one important data limitation. Lead with what makes the question worth answering."
   },
   {
     "objectID": "index.html#what-the-baseline-shows",
     "href": "index.html#what-the-baseline-shows",
-    "title": "Replace with a specific, informative title",
+    "title": "Predicting daily author revenue for e-books",
     "section": "What the baseline shows",
     "text": "What the baseline shows\nDescribe and justify a simple course-based baseline regression model. Interpret the result that best establishes the rest of the story, including its direction, magnitude, scale, and uncertainty. Explain one limitation or unresolved pattern that motivates deeper analysis.\n\n\nShow code\n# Load packages and data, document preparation, and fit the baseline.\n\n\n\n\nShow code\n# Show a primary figure or table only if it helps answer the question."
   },
   {
     "objectID": "index.html#going-beyond-the-baseline",
     "href": "index.html#going-beyond-the-baseline",
-    "title": "Replace with a specific, informative title",
+    "title": "Predicting daily author revenue for e-books",
     "section": "Going beyond the baseline",
     "text": "Going beyond the baseline\nUse two STAT 330 method families. Give each part a descriptive heading that states the question or finding, not an assignment label. Explain why you chose each method, how you checked it, and what it adds to the answer.\n\nReplace with a question or finding\nPresent one method and its most useful evidence.\n\n\nShow code\n# Analysis code for this part.\n\n\n\n\nReplace with another question or finding\nPresent a method from a different family and its most useful evidence. Combine this with the preceding subsection if that creates a clearer story.\n\n\nShow code\n# Analysis code for this part."
   },
   {
     "objectID": "index.html#a-new-direction-with-ai",
     "href": "index.html#a-new-direction-with-ai",
-    "title": "Replace with a specific, informative title",
+    "title": "Predicting daily author revenue for e-books",
     "section": "A new direction with AI",
     "text": "A new direction with AI\nExplain the need revealed by your preliminary course-based work, the extension you implemented with AI support, and what it contributes to the same research question. Show its substantive result on this page and summarize your independent checks. If the extension is an untaught comparator, evaluate it against the core course-based model. Link to the AI-use record instead of placing a transcript here.\n\n\nShow code\n# Implement the verified extension or show its most useful result.\n\n\nDetails are in the AI-use record."
   },
   {
     "objectID": "index.html#what-this-means",
     "href": "index.html#what-this-means",
-    "title": "Replace with a specific, informative title",
+    "title": "Predicting daily author revenue for e-books",
     "section": "What this means",
     "text": "What this means\nAnswer the research question directly. Distinguish statistical evidence from practical importance, state the most consequential limitations, and suggest one sensible next step. Avoid causal claims unless the study design supports them."
   },
   {
     "objectID": "index.html#data-and-code",
     "href": "index.html#data-and-code",
-    "title": "Replace with a specific, informative title",
+    "title": "Predicting daily author revenue for e-books",
     "section": "Data and code",
     "text": "Data and code\n\nData: Replace with a working source link or citation and any brief acquisition note needed to reproduce the project.\nRepository: Replace with your repository URL.\nAI-use record\nOther sources: Cite package documentation, articles, code, and other sources that materially informed the work."
   }
