@@ -3,3 +3,5 @@ Authors: Brielle Giles, Kailyn Eastman, Jane Callister
 We want to investigate how genre, publisher type, seller, rating, total reviews, daily average gross sales and sale price affect average daily author revenues book sales; specifically related to e-books. In doing so, we want to predict average daily author revenue based on certain predictor values, as listed above. This will help us determine which variables an author should consider to achieve higher average daily revenue from their e-book sales. Our audience is prospective e-book authors who want to understand the variables that go into increasing their daily revenue.
 
 Our main question is: what factors most contribute to higher daily average author revenue on e-books?
+
+Data pulled from CORGIS, saved under publishers.csv.
