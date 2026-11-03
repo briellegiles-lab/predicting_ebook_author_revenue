@@ -1,0 +1,201 @@
+---
+title: "Predicting eBook Revenue"
+subtitle: "STAT 330 Portfolio Project Proposal"
+author: "Kailyn Eastman, Brielle Giles, Jane Callister"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-fold: true
+    code-summary: "Show code"
+    embed-resources: true
+execute:
+  warning: false
+  message: false
+---
+
+## Question and audience
+
+We want to investigate how genre, publisher type, seller, rating, total reviews, daily average gross sales and sale price affect average daily author revenues book sales; specifically related to e-books. In doing so, we want to predict average daily author revenue based on certain predictor values, as listed above. This will help us determine which variables an author should consider to achieve higher average daily revenue from their e-book sales. Our audience is prospective e-book authors who want to understand the variables that go into increasing their daily revenue.
+
+## Data
+
+Source Link: https://corgis-edu.github.io/corgis/csv/publishers/
+
+In this dataset, our observational units are e-books, and our chosen response is average daily author revenue. Our candidate predictors consist of genre, publisher type, average rating (on Amazon Kindle store), total reviews, sale price, daily average gross sales, and seller. From the overview on the website, data were collected by scraping a newspaper article that included 54,000 observations of e-books sold on Amazon. This data is from CORGIS, which permissions allows us to use and redistribute the dataset under open-sourced lincensing terms (GPL-2.0). The dataset might not represent all e-books because it focuses on e-books from Amazon as opposed to other platforms. This dataset contains no ethical concerns.
+
+```{r}
+#  Loading Library
+library(tidyverse)
+
+#  Reading in Data
+publishers_data <- read.csv("publishers.csv", header = T)
+
+# Rename the predictors
+publishers_data <- publishers_data |>
+  rename(
+    author_revenue = daily.average.author.revenue,
+    seller = sold.by,
+    amazon_revenue = daily.average.amazon.revenue,
+    gross_sales = daily.average.gross.sales,
+    publisher_revenue = daily.average.publisher.revenue,
+    units_sold = daily.average.units.sold,
+    publisher_name = publisher.name,
+    publisher_type = publisher.type,
+    average_rating = statistics.average.rating,
+    sale_price = statistics.sale.price,
+    sales_rank = statistics.sales.rank,
+    total_reviews = statistics.total.reviews
+  )
+
+# Combine HarperCollins Publishers and Publishing (same seller)
+publishers_data <- publishers_data |>
+  mutate(
+    seller = recode(
+      seller,
+      "HarperCollins Publishers" = "HarperCollins Publishing"
+    )
+  )
+
+#
+publishers_data <- publishers_data |>
+  mutate(
+    genre = as.factor(genre),
+    seller = as.factor(seller),
+    publisher_type = as.factor(publisher_type),
+    publisher_name = as.factor(publisher_name)
+  )
+
+#  Checking Data by headers
+head(publishers_data)
+
+#  Checking dimensions
+dim(publishers_data)
+
+#  Variables
+colnames(publishers_data)
+```
+
+## One useful first look
+
+```{r}
+# Continuous variables against genre
+publishers_data |>
+  pivot_longer(
+    cols = c(average_rating, total_reviews, sale_price, gross_sales),
+    names_to = "predictor",
+    values_to = "value"
+  ) |>
+  ggplot(aes(x = value, y = author_revenue, color = genre)) +
+  geom_point() +
+  facet_wrap(
+    ~predictor,
+    scales = "free",
+    labeller = as_labeller(c(
+      average_rating = "Average Rating",
+      total_reviews = "Total Reviews",
+      sale_price = "Sale Price",
+      gross_sales = "Daily Average Gross Sales"
+    ))
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(
+    title = "Average Daily Author Revenue vs Continuous Predictors",
+    subtitle = "Colored by Genre",
+    x = "Value",
+    y = "Average Daily Author Revenue",
+    color = "Genre"
+  )
+
+# Continuous variables against publisher type
+publishers_data |>
+  pivot_longer(
+    cols = c(average_rating, total_reviews, sale_price, gross_sales),
+    names_to = "predictor",
+    values_to = "value"
+  ) |>
+  ggplot(aes(x = value, y = author_revenue, color = publisher_type)) +
+  geom_point() +
+  facet_wrap(
+    ~predictor,
+    scales = "free",
+    labeller = as_labeller(c(
+      average_rating = "Average Rating",
+      total_reviews = "Total Reviews",
+      sale_price = "Sale Price",
+      gross_sales = "Daily Average Gross Sales"
+    ))
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(
+    title = "Average Daily Author Revenue vs Continuous Predictors",
+    subtitle = "Colored by Publisher Type",
+    x = "Value",
+    y = "Average Daily Author Revenue",
+    color = "Publisher Type"
+  )
+
+# Continuous variables against sold by
+publishers_data |>
+  pivot_longer(
+    cols = c(average_rating, total_reviews, sale_price, gross_sales),
+    names_to = "predictor",
+    values_to = "value"
+  ) |>
+  ggplot(aes(x = value, y = author_revenue, color = seller)) +
+  geom_point() +
+  facet_wrap(
+    ~predictor,
+    scales = "free",
+    labeller = as_labeller(c(
+      average_rating = "Average Rating",
+      total_reviews = "Total Reviews",
+      sale_price = "Sale Price",
+      gross_sales = "Daily Average Gross Sales"
+    ))
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(
+    title = "Average Daily Author Revenue vs Continuous Predictors",
+    subtitle = "Colored by Seller",
+    x = "Value",
+    y = "Average Daily Author Revenue",
+    color = "Seller"
+  )
+```
+
+The most notable patterns among our continuous predictors are observed in average rating and sale price. Higher average daily author revenue tends to be associated with higher average ratings, while lower revenue is generally associated with lower ratings. However, most books are concentrated in the lower-revenue range. Sale prices are relatively similar across many books, but lower sale prices tend to be associated with higher average daily author revenue. When looking at daily average gross sales, we see a pattern in publisher type—author revenue tends to increase more for indie publishers as opposed to Amazon and big five publishers, shown by a steeper line. When examining the plots by genre, nonfiction books generally generate lower daily author revenue than genre fiction books; when focused on only those genres, as they make up the majority of the observed genres.
+
+## Baseline model
+
+We started with a basic linear regression model to take a first look at the associations and interactions. 
+
+```{r}
+# Fit the baseline and display only the output needed below.
+starting_mod <- lm(
+  author_revenue ~ genre +
+    publisher_type +
+    average_rating +
+    total_reviews +
+    sale_price +
+    seller +
+    gross_sales,
+  data = publishers_data
+)
+
+summary(starting_mod)
+```
+
+Holding all other predictors constant, an additional 100 reviews is associated with a mean estimated increase in average daily author revenue of $14.75. One limitation is the size of the estimated coefficients; each estimate is rather small, which makes interpretation more difficult. 
+
+## Where the analysis could go
+
+1. We will use LASSO to help us with subset selection. This will enable us to simplify our model to best determine the predictors of average daily author revenue.
+2. We will use cross-validation to help determine the prediction accuracy of average daily author revenue in regards to our chosen candidate models.
+
+## AI disclosure and sources
+
+We used AI to help proofread our code and writing.
+
+Works Cited 
+Bart, A. C. (2015). Publishers CSV file (Version 2.0.0) [Data set]. CORGIS Dataset Project. https://corgis-edu.github.io/corgis/csv/publishers/
