@@ -53,7 +53,8 @@ Response:
 > A limitation to keep in view: a regression using only bestseller data can describe associations among the books in your sample, but it can’t establish that the same associations hold for all e-books. Of these options, only adding a comparable non-bestseller sample directly tests that broader question. The others assess patterns within the bestseller data.
 >
 >1. Check whether results vary by sales-rank tier
-How it helps: If your data include sales_rank, compare the predictor relationships among higher- and lower-ranked books in your sample. This can show whether your conclusions depend heavily on the most prominent bestsellers.
+>
+>How it helps: If your data include sales_rank, compare the predictor relationships among higher- and lower-ranked books in your sample. This can show whether your conclusions depend heavily on the most prominent bestsellers.
 >
 >How it could appear in the case study: Report whether the rating and gross-sales relationships look similar across rank tiers. Describe this as a robustness check within the observed bestseller sample; it does not remove selection bias.
 >
@@ -71,7 +72,8 @@ How it helps: If your data include sales_rank, compare the predictor relationshi
 >- Compare the interaction model with the model without those interactions using a partial F-test, and see whether conclusions persist under a reasonable alternative grouping of ranks.
 >
 >2. Add a comparable sample of non-bestsellers
-How it helps: This lets you test whether the relationships differ between bestsellers and non-bestsellers, addressing the scope of the selection-bias concern more directly.
+>
+>How it helps: This lets you test whether the relationships differ between bestsellers and non-bestsellers, addressing the scope of the selection-bias concern more directly.
 >
 >How it could appear in the case study: Compare the estimates for the two groups and explain whether the patterns from the bestseller sample appear to generalize. This requires non-bestseller books with comparable revenue and predictor measurements; without them, the comparison can’t be made.
 >
@@ -92,7 +94,8 @@ How it helps: This lets you test whether the relationships differ between bestse
 >- Test whether the selected interaction terms jointly improve the model, then compare the estimated slopes and confidence intervals by bestseller status.
 >
 >3. Interpret the publisher-type and gross-sales relationship with predicted slopes
-How it helps: Your current model is additive, so it does not directly estimate whether the gross-sales slope differs by publisher type. Adding that interaction lets you quantify and display the pattern you observed.
+>
+>How it helps: Your current model is additive, so it does not directly estimate whether the gross-sales slope differs by publisher type. Adding that interaction lets you quantify and display the pattern you observed.
 >
 >How it could appear in the case study: Show a plot of predicted author revenue against gross sales for each publisher type, with uncertainty intervals. Report the estimated gross-sales slope for each type. This makes the fitted associations easier to interpret, but does not correct selection bias.
 >
@@ -114,7 +117,7 @@ How it helps: Your current model is additive, so it does not directly estimate w
 
 ## My decisions
 
-- **Accepted:** 
+- **Accepted:** We want to check whether the results vary by sales rank tier to determine whether there is a difference amongst sales quartiles.
 - **Changed:** 
 - **Rejected or corrected:** 
 
