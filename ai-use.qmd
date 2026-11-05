@@ -118,21 +118,20 @@ Response:
 ## My decisions
 
 - **Accepted:** We want to check whether the results vary by sales rank tier to determine whether there is a difference amongst sales quartiles.
-- **Changed:** 
-- **Rejected or corrected:** 
+- **Changed:** We also want to conduct an individual analysis stratified by publisher type to determine if more of the bestsellers come from one or a select few publishers.
+- **Rejected or corrected:** In addition to comparing the estimates, we also want to compare prediction performance across quartiles.
 
 **Connection to the final case study:** Identify where the extension's method and result appear on the final page and how they strengthen the course-based analysis.
 
 ## Independent verification
 
-1. **Check and result:** Replace with an official source, diagnostic, simulation, manual calculation, comparison with a known method, or another suitable check.
-2. **Check and result:** Replace with a different check and what you learned.
-
-Link or cite verification sources where appropriate. A second AI response does not count as independent verification.
+1. **Check and result:** We can cross-validate for each tier to determine whether there is a change in prediction accuracy between tiers
+2. **Check and result:** We can check whether there is a difference in representation amongst different publishers between quartiles.
 
 ## Remaining limitation
 
 **State one important uncertainty, failure mode, or limitation that remains.**
+Even after checking our model for robustness, selection bias may still be a significant problem. We can analyze the difference between sales quartiles, but this does not remove the underlying issue in the dataset as a whole.
 
 ## Other AI use, if any
 
