@@ -25,7 +25,7 @@
     "href": "ai-use.html#my-decisions",
     "title": "AI Use and Verification",
     "section": "My decisions",
-    "text": "My decisions\n\nAccepted: We want to check whether the results vary by sales rank tier to determine whether there is a difference amongst sales quartiles.\nChanged: We also want to conduct an individual analysis stratified by publisher type to determine if more of the bestsellers come from one or a select few publishers.\nRejected or corrected: In addition to comparing the estimates, we also want to compare prediction performance across quartiles.\n\nBy analyzing the difference in average daily author revenue through the lens of different publishers, we can better understand the relationship between publisher and revenue. Further, examining the data and prediction performance in relation to sales quartiles can help us diagnose possible failures that may occur from selection bias—an overrepresentation of bestsellers. In this way, we can better understand and interpret the results from our linear model. View the extension’s method and result in the index"
+    "text": "My decisions\n\nAccepted: We want to check whether the results vary by sales rank tier to determine whether there is a difference amongst sales quartiles.\nChanged: We also want to conduct an individual analysis stratified by publisher type to determine if more of the bestsellers come from one or a select few publishers.\nRejected or corrected: In addition to comparing the estimates, we also want to compare prediction performance across quartiles.\n\nBy analyzing the difference in average daily author revenue through the lens of different publishers, we can better understand the relationship between publisher and revenue. Further, examining the data and prediction performance in relation to sales quartiles can help us diagnose possible failures that may occur from selection bias—an overrepresentation of bestsellers. In this way, we can better understand and interpret the results from our linear model. View the extension’s method and result in the index."
   },
   {
     "objectID": "ai-use.html#independent-verification",
@@ -46,7 +46,7 @@
     "href": "ai-use.html#other-ai-use-if-any",
     "title": "AI Use and Verification",
     "section": "Other AI use, if any",
-    "text": "Other AI use, if any\nNone"
+    "text": "Other AI use, if any\nUsed AI to generate the latex code for the model formula."
   },
   {
     "objectID": "index.html",

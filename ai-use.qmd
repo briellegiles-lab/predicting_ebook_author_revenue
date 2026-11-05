@@ -134,4 +134,4 @@ Even after checking our model for robustness, selection bias may still be a sign
 
 ## Other AI use, if any
 
-Used to generate the latex code for the model formula.
+Used AI to generate the latex code for the model formula.
