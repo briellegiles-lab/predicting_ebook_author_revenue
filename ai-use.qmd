@@ -121,7 +121,7 @@ Response:
 - **Changed:** We also want to conduct an individual analysis stratified by publisher type to determine if more of the bestsellers come from one or a select few publishers.
 - **Rejected or corrected:** In addition to comparing the estimates, we also want to compare prediction performance across quartiles.
 
-**Connection to the final case study:** Identify where the extension's method and result appear on the final page and how they strengthen the course-based analysis.
+By analyzing the difference in average daily author revenue through the lens of different publishers, we can better understand the relationship between publisher and revenue. Further, examining the data and prediction performance in relation to sales quartiles can help us diagnose possible failures that may occur from selection bias—an overrepresentation of bestsellers. In this way, we can better understand and interpret the results from our linear model. View the extension's method and result in the [index](index.qmd)
 
 ## Independent verification
 
@@ -130,9 +130,8 @@ Response:
 
 ## Remaining limitation
 
-**State one important uncertainty, failure mode, or limitation that remains.**
 Even after checking our model for robustness, selection bias may still be a significant problem. We can analyze the difference between sales quartiles, but this does not remove the underlying issue in the dataset as a whole.
 
 ## Other AI use, if any
 
-**Briefly disclose earlier debugging, proofreading, or other AI assistance. Write “None” if there was no other use.**
+None
