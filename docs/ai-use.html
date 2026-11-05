@@ -2851,8 +2851,9 @@ font-size: 0.88rem;
 <blockquote class="blockquote">
 <p>A limitation to keep in view: a regression using only bestseller data can describe associations among the books in your sample, but it can’t establish that the same associations hold for all e-books. Of these options, only adding a comparable non-bestseller sample directly tests that broader question. The others assess patterns within the bestseller data.</p>
 <ol type="1">
-<li>Check whether results vary by sales-rank tier How it helps: If your data include sales_rank, compare the predictor relationships among higher- and lower-ranked books in your sample. This can show whether your conclusions depend heavily on the most prominent bestsellers.</li>
+<li>Check whether results vary by sales-rank tier</li>
 </ol>
+<p>How it helps: If your data include sales_rank, compare the predictor relationships among higher- and lower-ranked books in your sample. This can show whether your conclusions depend heavily on the most prominent bestsellers.</p>
 <p>How it could appear in the case study: Report whether the rating and gross-sales relationships look similar across rank tiers. Describe this as a robustness check within the observed bestseller sample; it does not remove selection bias.</p>
 <p>Implementation:</p>
 <ol type="1">
@@ -2865,8 +2866,9 @@ font-size: 0.88rem;
 <li>Compare the interaction model with the model without those interactions using a partial F-test, and see whether conclusions persist under a reasonable alternative grouping of ranks.</li>
 </ul>
 <ol start="2" type="1">
-<li>Add a comparable sample of non-bestsellers How it helps: This lets you test whether the relationships differ between bestsellers and non-bestsellers, addressing the scope of the selection-bias concern more directly.</li>
+<li>Add a comparable sample of non-bestsellers</li>
 </ol>
+<p>How it helps: This lets you test whether the relationships differ between bestsellers and non-bestsellers, addressing the scope of the selection-bias concern more directly.</p>
 <p>How it could appear in the case study: Compare the estimates for the two groups and explain whether the patterns from the bestseller sample appear to generalize. This requires non-bestseller books with comparable revenue and predictor measurements; without them, the comparison can’t be made.</p>
 <p>Implementation:</p>
 <ol type="1">
@@ -2881,8 +2883,9 @@ font-size: 0.88rem;
 <li><p>Test whether the selected interaction terms jointly improve the model, then compare the estimated slopes and confidence intervals by bestseller status.</p></li>
 </ul>
 <ol start="3" type="1">
-<li>Interpret the publisher-type and gross-sales relationship with predicted slopes How it helps: Your current model is additive, so it does not directly estimate whether the gross-sales slope differs by publisher type. Adding that interaction lets you quantify and display the pattern you observed.</li>
+<li>Interpret the publisher-type and gross-sales relationship with predicted slopes</li>
 </ol>
+<p>How it helps: Your current model is additive, so it does not directly estimate whether the gross-sales slope differs by publisher type. Adding that interaction lets you quantify and display the pattern you observed.</p>
 <p>How it could appear in the case study: Show a plot of predicted author revenue against gross sales for each publisher type, with uncertainty intervals. Report the estimated gross-sales slope for each type. This makes the fitted associations easier to interpret, but does not correct selection bias.</p>
 <p>Implementation:</p>
 <ol type="1">
@@ -2901,23 +2904,22 @@ font-size: 0.88rem;
 <section id="my-decisions" class="level2">
 <h2 class="anchored" data-anchor-id="my-decisions">My decisions</h2>
 <ul>
-<li><strong>Accepted:</strong></li>
-<li><strong>Changed:</strong></li>
-<li><strong>Rejected or corrected:</strong></li>
+<li><strong>Accepted:</strong> We want to check whether the results vary by sales rank tier to determine whether there is a difference amongst sales quartiles.</li>
+<li><strong>Changed:</strong> We also want to conduct an individual analysis stratified by publisher type to determine if more of the bestsellers come from one or a select few publishers.</li>
+<li><strong>Rejected or corrected:</strong> In addition to comparing the estimates, we also want to compare prediction performance across quartiles.</li>
 </ul>
 <p><strong>Connection to the final case study:</strong> Identify where the extension’s method and result appear on the final page and how they strengthen the course-based analysis.</p>
 </section>
 <section id="independent-verification" class="level2">
 <h2 class="anchored" data-anchor-id="independent-verification">Independent verification</h2>
 <ol type="1">
-<li><strong>Check and result:</strong> Replace with an official source, diagnostic, simulation, manual calculation, comparison with a known method, or another suitable check.</li>
-<li><strong>Check and result:</strong> Replace with a different check and what you learned.</li>
+<li><strong>Check and result:</strong> We can cross-validate for each tier to determine whether there is a change in prediction accuracy between tiers</li>
+<li><strong>Check and result:</strong> We can check whether there is a difference in representation amongst different publishers between quartiles.</li>
 </ol>
-<p>Link or cite verification sources where appropriate. A second AI response does not count as independent verification.</p>
 </section>
 <section id="remaining-limitation" class="level2">
 <h2 class="anchored" data-anchor-id="remaining-limitation">Remaining limitation</h2>
-<p><strong>State one important uncertainty, failure mode, or limitation that remains.</strong></p>
+<p><strong>State one important uncertainty, failure mode, or limitation that remains.</strong> Even after checking our model for robustness, selection bias may still be a significant problem. We can analyze the difference between sales quartiles, but this does not remove the underlying issue in the dataset as a whole.</p>
 </section>
 <section id="other-ai-use-if-any" class="level2">
 <h2 class="anchored" data-anchor-id="other-ai-use-if-any">Other AI use, if any</h2>
