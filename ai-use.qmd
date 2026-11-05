@@ -121,7 +121,7 @@ By analyzing the difference in average daily author revenue through the lens of 
 
 ## Independent verification
 
-1. **Check and result:** We can cross-validate for each tier to determine whether there is a change in prediction accuracy between tiers
+1. **Check and result:** We can cross-validate for each quartile (or tier) to determine whether there is a change in prediction accuracy between tiers.
 2. **Check and result:** We can check whether there is a difference in representation amongst different publishers between quartiles.
 
 ## Remaining limitation

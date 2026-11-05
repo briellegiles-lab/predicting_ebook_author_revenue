@@ -32,7 +32,7 @@
     "href": "ai-use.html#independent-verification",
     "title": "AI Use and Verification",
     "section": "Independent verification",
-    "text": "Independent verification\n\nCheck and result: We can cross-validate for each tier to determine whether there is a change in prediction accuracy between tiers\nCheck and result: We can check whether there is a difference in representation amongst different publishers between quartiles."
+    "text": "Independent verification\n\nCheck and result: We can cross-validate for each quartile (or tier) to determine whether there is a change in prediction accuracy between tiers.\nCheck and result: We can check whether there is a difference in representation amongst different publishers between quartiles."
   },
   {
     "objectID": "ai-use.html#remaining-limitation",
